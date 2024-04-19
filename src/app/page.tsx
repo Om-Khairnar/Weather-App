@@ -51,7 +51,7 @@ export default function Home() {
         setCityData(data);
         setError(null);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.log(err.message);
       setError("Error fetching data");
     }
