@@ -77,11 +77,12 @@ export default function Home() {
         <input
           type="search"
           placeholder="City Name"
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setCity(e.target.value);
             console.log("City Updated:", e.target.value);
           }}
         />
+        
 
         <button onClick={handleSearchClick}>
           <FaSearch />
