@@ -62,9 +62,14 @@ export default function Home() {
     getWeatherData();
   };
 
+  // useEffect(() => {
+  //   getWeatherData();
+  // }, [city]);
+
   useEffect(() => {
     getWeatherData();
-  }, [city]);
+}, [city, getWeatherData]);
+
 
   return (
     <div className={styles.outerdiv}>
