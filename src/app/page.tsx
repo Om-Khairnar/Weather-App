@@ -16,7 +16,8 @@ import {
 
 const WEATHER_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 export default function Home() {
-  const [city, setCity] = useState();
+  const [city, setCity] = useState<string>("");
+
   const [cityData, setCityData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const currentTime = new Date().toLocaleTimeString([], {
@@ -26,7 +27,6 @@ export default function Home() {
 
   const getWeatherData = async () => {
     try {
-      
       if (!city) {
         console.log("City is empty or undefined.");
         return;
@@ -68,8 +68,7 @@ export default function Home() {
 
   useEffect(() => {
     getWeatherData();
-}, [city, getWeatherData]);
-
+  }, [city, getWeatherData]);
 
   return (
     <div className={styles.outerdiv}>
@@ -77,12 +76,11 @@ export default function Home() {
         <input
           type="search"
           placeholder="City Name"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          onChange={(e) => {
             setCity(e.target.value);
             console.log("City Updated:", e.target.value);
           }}
         />
-        
 
         <button onClick={handleSearchClick}>
           <FaSearch />
